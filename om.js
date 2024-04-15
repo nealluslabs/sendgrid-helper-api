@@ -107,7 +107,7 @@ try {
 
 
 router.post('/chatgpt', async (req, res) => {
-  const openAI = new openai({apiKey:process.ENV.openAIKey});
+  const openAI = new openai({apiKey:process.env.openAIKey});
 
  
   const prompt = req.body.prompt;
