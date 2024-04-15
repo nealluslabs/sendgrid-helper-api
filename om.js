@@ -5,39 +5,13 @@ const lzjs = require('lzjs');
 const { compress, decompress } = require('shrink-string')
 const { v4: uuidv4 } = require('uuid');
 const translate = require('translate-google-api');
-
-
-
-
-
-
-
-
-router.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', '*');
-    res.header('Access-Control-Allow-Headers', '*');
-    next();
-  });
-
-const getOMAccessToken =  "https://api.orange.com/oauth/v3/token";
-const orangeWebPayment =  "https://api.orange.com/orange-money-webpay/gn/v1/webpayment";
-const orangeConfirmPayment = "https://api.orange.com/orange-money-webpay/gn/v1/transactionstatus";
-
-
-
-
-const express = require('express');
-const router = express.Router();
-const axios = require('axios');
-const lzjs = require('lzjs');
-const { compress, decompress } = require('shrink-string')
-const { v4: uuidv4 } = require('uuid');
-const translate = require('translate-google-api');
 require('dotenv').config();
-
-
 const openai = require('openai');
+
+
+
+
+
 
 
 router.use((req, res, next) => {
