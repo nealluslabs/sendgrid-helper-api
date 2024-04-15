@@ -6,12 +6,13 @@ const cors = require('cors');
 const https = require("https");
  sslRootCAs = require('ssl-root-cas')
 sslRootCAs.inject()
+require('dotenv').config();
 
 const omRoute = require('./om');
 
 
 const app = express();
-const port=process.env.PORT||5008
+const port = 5008;
 
 
 const httpsAgent = new https.Agent({
@@ -34,18 +35,18 @@ app.use((req, res, next) => {
   next();
 });
 
-const developerPrimaryKey = "5b7a54a04b134ed3a70418a59660cb25" /*----> WORKING SANDBOX PRIMARY KEY--->*/ /*'1d7218381da64302851dccbef29bf671'*/
+const developerPrimaryKey = process.env.MTN_DEVELOPER_PRIMARY_KEY  /*----> WORKING SANDBOX PRIMARY KEY--->*/
 
 
 
-const xReferenceId =    'ae553cb4-60db-42ba-afa0-a9b6638543b6'  // ---> SANDBOX X REFERENCE '2079f714-3a79-4db1-bc3a-e0f608b19b15'  <-- ALSO STORE THIS IN AN ENV VARIABLE
+const xReferenceId = process.env.MTN_X_REFERENCE_ID     // ---> SANDBOX X REFERENCE  <-- ALSO STORE THIS IN AN ENV VARIABLE
 
 
 const momoApiKeyUrl = `https://proxy.momoapi.mtn.com/v1_0/apiuser/${xReferenceId}/apikey`
 const momoTokenUrl = "https://proxy.momoapi.mtn.com/collection/token";
 const momoTokenUrl2 = "https://proxy.momoapi.mtn.com/collection/token/";
 const momoRequestToPayUrl = "https://proxy.momoapi.mtn.com/collection/v1_0/requesttopay";
-const productionApiKey= 'b82f1f0591384e00b4cd8b2ed91d70df'  //<--- STORE INSIDE ENVIRONMENT VARIABLE WHEN NEXT U WANNA PUSH  29/11/2023
+const productionApiKey=  process.env.MTN_PRODUCTION_API_KEY //<--- STORE INSIDE ENVIRONMENT VARIABLE WHEN NEXT U WANNA PUSH  29/11/2023
 
 /*============     1*/
 app.post('/api/get-token', async (req, res) => {
@@ -106,8 +107,7 @@ app.post('/api/requesttopay', async (req, res) => {
       headers: {
         'X-Reference-Id': myUuid,
         'X-Target-Environment': 'mtnguineaconakry',
-        'Ocp-Apim-Subscription-Key':developerPrimaryKey,/* '5b7a54a04b134ed3a70418a59660cb25'*/
-        'Authorization': `Bearer ${momoToken}`,
+        'Ocp-Apim-Subscription-Key':developerPrimaryKey,
         'Content-Type': 'application/json',
 },
     });
@@ -135,7 +135,7 @@ setTimeout(async()=>{
     headers: {
       'X-Reference-Id': payerReferenceId,
       'X-Target-Environment': 'mtnguineaconakry',
-      'Ocp-Apim-Subscription-Key':developerPrimaryKey,/* '5b7a54a04b134ed3a70418a59660cb25'*/
+      'Ocp-Apim-Subscription-Key':developerPrimaryKey,
       'Authorization': `Bearer ${momoToken}`,
       'Content-Type': 'application/json',
 },
@@ -172,7 +172,7 @@ app.post('/api/twoaction', async (req, res) => {
       headers: {
         'X-Reference-Id': myUuid,
         'X-Target-Environment': 'mtnguineaconakry',
-        'Ocp-Apim-Subscription-Key':developerPrimaryKey,/* '5b7a54a04b134ed3a70418a59660cb25'*/
+        'Ocp-Apim-Subscription-Key':developerPrimaryKey,
         'Authorization': `Bearer ${momoToken}`,
         'Content-Type': 'application/json',
 },
@@ -186,7 +186,7 @@ app.post('/api/twoaction', async (req, res) => {
           headers: {
             'X-Reference-Id': myUuid,
             'X-Target-Environment': 'mtnguineaconakry',
-            'Ocp-Apim-Subscription-Key':developerPrimaryKey,/* '5b7a54a04b134ed3a70418a59660cb25'*/
+            'Ocp-Apim-Subscription-Key':developerPrimaryKey,
             'Authorization': `Bearer ${momoToken}`,
             'Content-Type': 'application/json',
       },
