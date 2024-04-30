@@ -99,7 +99,8 @@ router.post('/chatgpt', async (req, res) => {
     res.json({ text: response.choices[0].message.content});
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'An error occurred while processing your request.' });
+    res.json({ error: 'An error occurred while processing your request.' ,
+               actualError:error                      });
   }
 
  
