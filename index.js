@@ -12,7 +12,7 @@ const omRoute = require('./om');
 
 
 const app = express();
-const port = 5008;
+const port = process.env.PORT||5008;
 
 
 const httpsAgent = new https.Agent({
