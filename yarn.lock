@@ -7,6 +7,29 @@
   "resolved" "https://registry.npmjs.org/@coolaj86/urequest/-/urequest-1.3.7.tgz"
   "version" "1.3.7"
 
+"@sendgrid/client@^8.1.3":
+  "integrity" "sha512-mRwTticRZIdUTsnyzvlK6dMu3jni9ci9J+dW/6fMMFpGRAJdCJlivFVYQvqk8kRS3RnFzS7sf6BSmhLl1ldDhA=="
+  "resolved" "https://registry.npmjs.org/@sendgrid/client/-/client-8.1.3.tgz"
+  "version" "8.1.3"
+  dependencies:
+    "@sendgrid/helpers" "^8.0.0"
+    "axios" "^1.6.8"
+
+"@sendgrid/helpers@^8.0.0":
+  "integrity" "sha512-Ze7WuW2Xzy5GT5WRx+yEv89fsg/pgy3T1E3FS0QEx0/VvRmigMZ5qyVGhJz4SxomegDkzXv/i0aFPpHKN8qdAA=="
+  "resolved" "https://registry.npmjs.org/@sendgrid/helpers/-/helpers-8.0.0.tgz"
+  "version" "8.0.0"
+  dependencies:
+    "deepmerge" "^4.2.2"
+
+"@sendgrid/mail@^8.1.3":
+  "integrity" "sha512-Wg5iKSUOER83/cfY6rbPa+o3ChnYzWwv1OcsR8gCV8SKi+sUPIMroildimlnb72DBkQxcbylxng1W7f0RIX7MQ=="
+  "resolved" "https://registry.npmjs.org/@sendgrid/mail/-/mail-8.1.3.tgz"
+  "version" "8.1.3"
+  dependencies:
+    "@sendgrid/client" "^8.1.3"
+    "@sendgrid/helpers" "^8.0.0"
+
 "@types/node-fetch@^2.6.4":
   "integrity" "sha512-24xFj9R5+rfQJLRyM56qh+wnVSYhyXC2tkoBndtY0U+vubqNsYXGjufB2nn8Q6gt0LrARwL6UBtMCSVCwl4B1g=="
   "resolved" "https://registry.npmjs.org/@types/node-fetch/-/node-fetch-2.6.11.tgz"
@@ -74,12 +97,12 @@
   dependencies:
     "follow-redirects" "^1.10.0"
 
-"axios@^1.6.2":
-  "integrity" "sha512-7i24Ri4pmDRfJTR7LDBhsOTtcm+9kjX5WiY1X3wIisx6G9So3pfMkEiU7emUBe46oceVImccTEM3k6C5dbVW8A=="
-  "resolved" "https://registry.npmjs.org/axios/-/axios-1.6.2.tgz"
-  "version" "1.6.2"
+"axios@^1.6.2", "axios@^1.6.8":
+  "integrity" "sha512-Ar7ND9pU99eJ9GpoGQKhKf58GpUOgnzuaB7ueNQ5BMi0p+LZ5oaEnfF999fAArcTIBwXTCHAmGcHOZJaWPq9Nw=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-1.7.3.tgz"
+  "version" "1.7.3"
   dependencies:
-    "follow-redirects" "^1.15.0"
+    "follow-redirects" "^1.15.6"
     "form-data" "^4.0.0"
     "proxy-from-env" "^1.1.0"
 
@@ -211,6 +234,11 @@
   dependencies:
     "ms" "2.0.0"
 
+"deepmerge@^4.2.2":
+  "integrity" "sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A=="
+  "resolved" "https://registry.npmjs.org/deepmerge/-/deepmerge-4.3.1.tgz"
+  "version" "4.3.1"
+
 "define-data-property@^1.1.1":
   "integrity" "sha512-E7uGkTzkk1d0ByLeSc6ZsFS79Axg+m1P/VsgYsxHgiuc3tFSj+MjMIwe90FC4lOAZzNBdY7kkO2P2wKdsQ1vgQ=="
   "resolved" "https://registry.npmjs.org/define-data-property/-/define-data-property-1.1.1.tgz"
@@ -322,7 +350,7 @@
     "statuses" "2.0.1"
     "unpipe" "~1.0.0"
 
-"follow-redirects@^1.10.0", "follow-redirects@^1.15.0":
+"follow-redirects@^1.10.0", "follow-redirects@^1.15.6":
   "integrity" "sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.6.tgz"
   "version" "1.15.6"

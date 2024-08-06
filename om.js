@@ -71,6 +71,37 @@ try {
 
 
 
+router.post('/welcome', async (req, res) => {
+
+
+   // sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
+
+
+ 
+  
+  console.log("SENDING EMAIL  IS HIT-->");
+try {
+
+    sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY)
+ 
+      
+         sgMail.send(req.body.message)
+
+ 
+         console.log("EMAIL IS SUPPOSED TO BE SENT AT THIS-->");
+  //perhaps get a response to confirm the email has been sent, for now we're not doing this
+
+  //return res.json(response);
+  
+} catch (error) {
+  console.log("ERROR IS ACTUALLY___", error);
+  return res.status(500).json({ error: 'Internal Server Error' });
+}
+});
+
+
+
+
 
 
 
